@@ -4,10 +4,10 @@ A maths toolkit in two parts:
 
 | Folder | What it is |
 | --- | --- |
-| `lib/` | The `mathx` Python package: pure functions, no dependencies, Python 3.8+. This is what you publish to PyPI. |
-| `script/` | A Kivy app (desktop or mobile) that uses `mathx` through a graphical interface. |
+| lib/ | The mathx Python package (published on PyPI as mathzx): pure functions, no dependencies, Python 3.8+. |
+| script/ | A Kivy app (desktop or mobile) that uses mathx through a graphical interface. |
 
-```
+
 MathX/
 ├── lib/
 │   ├── mathx/            the package (circle, shapes/, trig, arithmetic, number_theory,
@@ -25,40 +25,46 @@ MathX/
 │   └── requirements.txt
 ├── LICENSE
 └── .gitignore
-```
+
 
 ## Run the app
 
-```bash
+bash
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -e lib
 pip install -r script/requirements.txt
 python script/main.py
-```
+
 
 ## Develop and test the library
 
-```bash
+bash
 pip install -e "lib[dev]"
 cd lib && pytest && ruff check .
-```
 
-App logic tests (no Kivy window needed): `cd script && pytest tests`.
+
+App logic tests (no Kivy window needed): cd script && pytest tests.
 
 ## Publish the library
 
-```bash
+bash
 cd lib
 pip install build twine
 python -m build
 twine check dist/*
 twine upload --repository testpypi dist/*   # try it first
 twine upload dist/*
-```
 
-Check that the name `mathx` is free on pypi.org first. If it is taken, change only
-`name` in `lib/pyproject.toml` (for example `mathx-lib`); `import mathx` stays the same.
+
+The PyPI package name is mathzx (set in lib/pyproject.toml); the import name stays mathx:
+
+bash
+pip install mathzx
+
+python
+import mathx
+
 
 ## License
 
