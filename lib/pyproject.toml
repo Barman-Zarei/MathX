@@ -3,7 +3,7 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mathx"
+name = "mathzx"
 version = "0.1.0"
 description = "A dependency-free maths toolkit: shapes, trigonometry, numbers, algebra, statistics, units and a safe expression evaluator."
 readme = "README.md"
