@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mathx"
+version = "0.1.0"
+description = "A dependency-free maths toolkit: shapes, trigonometry, numbers, algebra, statistics, units and a safe expression evaluator."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "Barman" }]
+keywords = ["math", "geometry", "trigonometry", "calculator", "statistics", "units"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+# [project.urls]
+# Homepage = "https://github.com/<username>/MathX"
+
+[tool.setuptools.packages.find]
+include = ["mathx*"]
+
+[tool.setuptools.package-data]
+mathx = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B"]
